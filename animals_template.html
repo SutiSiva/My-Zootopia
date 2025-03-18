@@ -1,0 +1,12 @@
+with open('animals.html', 'w') as output_file:
+    output_file.write(final_output)
+
+final_output = template_content.replace('__REPLACE_ANIMALS_INFO__', output)
+for animal in animals_data:
+    output += '<li class="cards__item">\n'
+    output += f'<div class="card__title">{animal.get("name", "N/A")}</div>\n'
+    output += f'<p class="card__text"><strong>Diet:</strong> {animal.get("characteristics", {}).get("diet", "N/A")}<br/>\n'
+    output += f'<strong>Location:</strong> {animal.get("locations", ["N/A"])[0]}<br/>\n'
+    if 'type' in animal:
+        output += f'<strong>Type:</strong> {animal["type"]}<br/>\n'
+    output += '</p></li>\n'
