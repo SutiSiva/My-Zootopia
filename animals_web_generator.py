@@ -1,17 +1,27 @@
-import json
-
-def load_data(file_path):
-    """Loads a JSON file"""
-    with open(file_path, "r") as handle:
-        return json.load(handle)
+import data_fetcher
 
 
-animals_data = load_data('animals_data.json')
+def generate_website(animal_data, animal_name):
+    if not animal_data:
+        with open("animals.html", "w") as file:
+            file.write(f"<h2>The animal '{animal_name}' doesn't exist.</h2>")
+        return
 
-for animal in animals_data:
-    print(f"Name: {animal.get('name', 'N/A')}")
-    print(f"Diet: {animal.get('characteristics', {}).get('diet', 'N/A')}")
-    if 'locations' in animal and animal['locations']:
-        print(f"Location: {animal['locations'][0]}")
-    print(f"Type: {animal.get('type', 'N/A')}")
-    print()  # Leerzeile für bessere Lesbarkeit
+    # Generate the HTML content for the animals
+    html_content = "<h1>Animal Information</h1><ul>"
+    for animal in animal_data:
+        html_content += f"<li><h2>{animal['name']}</h2></li>"
+        # Add more details as needed
+    html_content += "</ul>"
+
+    # Write to the HTML file
+    with open("animals.html", "w") as file:
+        file.write(html_content)
+
+
+if __name__ == "__main__":
+    animal_name = input("Please enter an animal: ")
+    data = data_fetcher.fetch_data(animal_name)
+
+    generate_website(data, animal_name)
+    print("Website was successfully generated to the file animals.html.")
