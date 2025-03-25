@@ -44,6 +44,7 @@ def generate_html(results):
     return html_content
 
 def main():
+    """plays all functions: load data, search animals and generate html"""
     animals_data = load_data('animals_data.json')
 
     while True:
