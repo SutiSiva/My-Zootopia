@@ -18,4 +18,4 @@ def fetch_data(animal_name):
         return response.json()  # Return the JSON response as a list of dictionaries
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
-        return []  # Return an empty list if the request failed""
+        return []  # Return an empty list if the request failed

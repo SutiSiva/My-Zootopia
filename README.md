@@ -7,4 +7,4 @@ This project fetches animal data from the API Ninja and generates a website disp
 To install this project, clone the repository and install the dependencies in requirements.txt using:
 
 ```bash
-pip install -r requirements.txt""
+pip install -r requirements.txt

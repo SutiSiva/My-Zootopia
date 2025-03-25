@@ -27,4 +27,4 @@ def generate_website(animals_data):
 if __name__ == "__main__":
     animals_data = load_data('animals_data.json')
     generate_website(animals_data)
-    print("Website was successfully generated to the file animals.html.")""
+    print("Website was successfully generated to the file animals.html.")
